@@ -3,6 +3,7 @@
 # License: MIT
 
 import numpy as np
+from collections import namedtuple
 
 
 def read_roi(fileobj):
@@ -119,8 +120,11 @@ def read_roi(fileobj):
     if options & SUB_PIXEL_RESOLUTION == 0:
         points[:, 1] += left
         points[:, 0] += top
-
-    return points
+        
+    Roi = namedtuple('Roi', 'points position')
+    roi = Roi(points=points, position=position)
+        
+    return roi
 
 
 def read_roi_zip(fname):
