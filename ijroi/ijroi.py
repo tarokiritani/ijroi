@@ -8,10 +8,11 @@ from collections import namedtuple
 
 def read_roi(fileobj):
     '''
-    points = read_roi(fileobj)
+    points, position = read_roi(fileobj)
 
     Read ImageJ's ROI format. Points are returned in a nx2 array. Each row
-    is in [row, column] -- that is, (y,x) -- order.
+    is in [row, column] -- that is, (y,x) -- order. Position is the slice 
+    number.
     '''
     # This is based on:
     # http://rsbweb.nih.gov/ij/developer/source/ij/io/RoiDecoder.java.html
